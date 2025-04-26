@@ -22,7 +22,7 @@ jobs:
         go-version: '1.18'
 
     - name: Test
-      run: go test -race -coverprofile=coverage.out -covermode=atomic -v ./...
+      run: go test -gcflags="all=-N -l" -race -coverprofile=coverage.out -covermode=atomic -v ./...
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1
